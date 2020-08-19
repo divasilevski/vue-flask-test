@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
+from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 
 # configuration
 DEBUG = True
@@ -9,12 +9,20 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 # enable CORS
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # sanity check route
 @app.route('/ping', methods=['GET'])
-def ping_pong():
+@cross_origin()
+def ping():
     return jsonify('pong!')
+
+@app.route('/pong', methods=['POST'])
+@cross_origin()
+def pong():
+    file = request.files['file']
+    read = file.read()
+    return read
 
 if __name__ == '__main__':
     app.run()
