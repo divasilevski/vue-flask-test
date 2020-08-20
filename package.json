@@ -1,0 +1,21 @@
+{
+  "name": "fls-v-test2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd client && npm run serve",
+    "server": "cd server && env\\Scripts\\activate.bat && python app.py",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divasilevski/vue-flask-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/divasilevski/vue-flask-test/issues"
+  },
+  "homepage": "https://github.com/divasilevski/vue-flask-test#readme"
+}
